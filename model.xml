@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<featureModel>
+	<properties>
+		<graphics key="showhiddenfeatures" value="true"/>
+		<graphics key="legendautolayout" value="true"/>
+		<graphics key="showshortnames" value="false"/>
+		<graphics key="layout" value="horizontal"/>
+		<graphics key="showcollapsedconstraints" value="true"/>
+		<graphics key="legendhidden" value="false"/>
+		<graphics key="layoutalgorithm" value="1"/>
+	</properties>
+	<struct>
+		<and abstract="true" mandatory="true" name="Cajero">
+			<graphics key="collapsed" value="false"/>
+			<feature mandatory="true" name="Saldo"/>
+			<feature mandatory="true" name="Retiro"/>
+			<feature name="Transferencia"/>
+			<feature name="Auditoria"/>
+			<feature name="SaldoReducido"/>
+			<feature name="Consignaciones"/>
+		</and>
+	</struct>
+	<constraints>
+		<rule>
+			<imp>
+				<disj>
+					<var>Transferencia</var>
+					<var>Consignaciones</var>
+				</disj>
+				<conj>
+					<var>Transferencia</var>
+					<var>Consignaciones</var>
+				</conj>
+			</imp>
+		</rule>
+	</constraints>
+</featureModel>
